@@ -1,0 +1,205 @@
+/**
+ * This file contains the styles required to make the footer sticky.
+ */
+
+html,
+body {
+    height: 100%;
+}
+
+.stickyfooter {
+    position: fixed;
+    right: 0;
+    left: 0;
+    height: $stickyfooter-height;
+    bottom: calc(#{$stickyfooter-height} * -1);
+    transition: bottom .5s;
+    z-index: $zindex-sticky;
+    box-shadow: 0 0 1rem rgba($black, .15);
+    font-size: calc(#{$font-size-base} * 1.10);
+    // Adjust sticky footer width to the main content area.
+    .sticky-footer-content {
+        overflow: hidden;
+        @include media-breakpoint-up(md) {
+            .pagelayout-standard &,
+            body.limitedwidth.uses-drawers & {
+                max-width: $course-content-maxwidth;
+            }
+        }
+    }
+    // Adjust sticky footer width when drawers are open.
+    .sticky-footer-content-wrapper {
+        @include transition(0.2s);
+        @include media-breakpoint-up(lg) {
+            .drawers {
+                padding: 0 3rem;
+            }
+            .show-drawer-left & {
+                margin-left: $drawer-left-width;
+                padding: 0 3rem 0 1rem;
+            }
+            .show-drawer-right & {
+                margin-right: $drawer-right-width;
+                padding: 0 1rem 0 3rem;
+            }
+            .show-drawer-right.show-drawer-left & {
+                padding: 0 1rem;
+            }
+        }
+    }
+}
+
+.hasstickyfooter .stickyfooter {
+    bottom: 0;
+}
+
+/* Standard components fixes for sticky footer. */
+
+.stickyfooter ul.pagination {
+    margin-bottom: map-get($spacers, 1);
+}
+
+.stickyfooter .btn {
+    font-size: calc(#{$font-size-base} * 1.10);
+}
+
+/* Breakpoints fixes. */
+
+@include media-breakpoint-up(sm) {
+    #page-wrapper {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        #page {
+            &:not(.drawers) {
+                flex: 1 0 auto;
+            }
+            display: flex;
+            flex-direction: column;
+            #page-content {
+                flex: 1 0 auto;
+            }
+        }
+        #page-footer {
+            flex-shrink: 0;
+        }
+    }
+}
+
+@include media-breakpoint-down(md) {
+    #page-wrapper {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        #page {
+            &:not(.drawers) {
+                flex: 1 0 auto;
+            }
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
+
+
+
+
+/* ===== GUNI FOOTER GRID LAYOUT ===== */
+
+html, body {
+    height: 100%;
+}
+
+#page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#page-content {
+    flex: 1;
+}
+
+/* ===== FOOTER ===== */
+
+.guni-footer {
+    margin-top: auto; /* pushes footer to bottom */
+    padding: 4rem 5rem;
+    background: linear-gradient(135deg, #0d2c54, #1e4fa3);
+    color: rgba(255,255,255,0.95);
+
+    font-size: 1.1rem;   /* 🔥 Bigger base text */
+    line-height: 1.0;
+}
+
+/* Grid layout */
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    margin-bottom: 3rem;
+    text-align: center;          /* Center text */
+    justify-items: center; 
+}
+
+/* Column headings */
+.footer-col h6,
+.footer-col h5 {
+    margin-bottom: 1.2rem;
+    font-weight: 700;
+    font-size: 1.2rem;   /* Bigger heading */
+    color: #ffffff;
+}
+
+/* Links */
+.footer-col a {
+    display: block;
+    margin-bottom: .8rem;
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.85);
+    transition: .2s ease;
+}
+
+.footer-col a:hover {
+    color: #ffffff;
+    transform: translateX(4px);
+}
+
+/* Tagline */
+.footer-tagline {
+    opacity: .8;
+    font-size: 1.05rem;
+}
+
+/* Bottom row */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2.5rem;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    font-size: 1.05rem;
+    flex-wrap: wrap;
+}
+
+/* Debug */
+.footer-debug {
+    margin-top: 2rem;
+    padding: 1.2rem 0;
+    background: rgba(0,0,0,0.3);
+    font-size: 0.95rem;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: .75rem;
+        text-align: center;
+    }
+}

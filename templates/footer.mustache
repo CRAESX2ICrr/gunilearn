@@ -1,0 +1,59 @@
+<footer id="page-footer" class="guni-footer">
+
+    <!-- ================= TOP GRID ================= -->
+    <div class="footer-grid">
+
+        <!-- BRAND COLUMN -->
+        <div class="footer-col footer-brand">
+            <h5>Goa University</h5>
+            <p>Learning Management System</p>
+            <p class="footer-tagline">Empowering Digital Education</p>
+        </div>
+
+        <!-- QUICK LINKS -->
+        <div class="footer-col">
+            <h6>Quick Links</h6>
+            <a href="https://www.unigoa.ac.in">Main Website</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">IT Support</a>
+        </div>
+
+        <!-- SUPPORT -->
+        <div class="footer-col">
+            <h6>Support</h6>
+            <a href="https://docs.moodle.org">Documentation</a>
+            <a href="https://moodle.com/help/" target="_blank">Services & Support</a>
+            <a href="/user/contactsitesupport.php">Contact Support</a>
+        </div>
+
+    </div>
+
+    <!-- ================= META ROW ================= -->
+    <div class="footer-bottom">
+
+        <div class="footer-login">
+            {{{ output.login_info }}}
+        </div>
+
+        <div class="footer-privacy">
+            {{{ output.standard_footer_html }}}
+        </div>
+
+        <div class="footer-version">
+            Powered by <a href="https://moodle.com">Moodle</a>
+            {{#output.moodle_release}}
+                • Version {{{ output.moodle_release }}}
+            {{/output.moodle_release}}
+        </div>
+
+    </div>
+
+    <!-- ================= DEBUG ================= -->
+    <div class="footer-debug">
+        {{{ output.debug_footer_html }}}
+    </div>
+
+    {{{ output.standard_end_of_body_html }}}
+
+</footer>

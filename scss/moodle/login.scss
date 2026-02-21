@@ -1,0 +1,211 @@
+$loginbackground-gradient-from: $gray-100 !default;
+$loginbackground-gradient-to: $gray-300 !default;
+$logincontainer-bg: $white !default;
+$logincontainer-padding: 3rem !default;
+$logincontainer-shadow: $box-shadow !default;
+$logindivider-margin-top: 1.5rem !default;
+$logindivider-margin-bottom: 1.5rem !default;
+$logindivider-border: $border-color !default;
+$login-identity-provider-btn-border: $border-color !default;
+
+.pagelayout-login #region-main {
+    border: 0;
+    background-color: inherit;
+}
+
+.pagelayout-login #page {
+    background: $loginbackground-gradient-from;
+    @include gradient-x($loginbackground-gradient-from, $loginbackground-gradient-to, 0%, 100%);
+    div[role="main"] {
+        height: 100%;
+    }
+}
+
+.login-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.login-container {
+    background-color: $logincontainer-bg;
+    padding: $logincontainer-padding;
+    box-shadow: $logincontainer-shadow;
+    margin-bottom: 2rem;
+    @include border-radius();
+    .login-languagemenu {
+        display: flex;
+        justify-content: flex-start;
+        .dropdown-menu {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+    }
+    .login-logo {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+    .login-divider {
+        margin-top: $logindivider-margin-top;
+        margin-bottom: $logindivider-margin-bottom;
+        border-top: $border-width solid $logindivider-border;
+    }
+
+    h1.login-heading {
+        font-size: $h2-font-size;
+    }
+
+    h2.login-heading {
+        font-size: $h4-font-size;
+    }
+    .login-identityproviders {
+        .login-identityprovider-btn {
+            border: $border-width solid $login-identity-provider-btn-border;
+        }
+    }
+    .divider {
+        width: $border-width;
+        background-color: $gray-300;
+        height: $font-size-base * 2;
+    }
+    .action-menu-trigger {
+        a {
+            margin: 0.5rem 0;
+        }
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .login-container {
+        width: 500px !important; /* stylelint-disable-line declaration-no-important */
+    }
+}
+
+
+/* ===== Custom login button ===== */
+#loginbtn {
+    display: block;
+    margin: 1rem auto 0;   // center button
+    border-radius: 40px;   // rounder shape
+    padding: 0.6rem 2.5rem;
+    background-color: darken($primary, 8%);
+    border-color: darken($primary, 10%);
+    font-weight: 600;
+    transition: all .2s ease;
+    width: 220px;
+
+}
+
+#loginbtn:hover {
+    background-color: darken($primary, 12%);
+    border-color: darken($primary, 14%);
+}
+
+
+.login-form-forgotpassword {
+    text-align: center;
+    margin-top: 0.8rem;
+
+    a {
+        color: darken($primary, 10%);
+        font-weight: 500;
+        text-decoration: none;
+        transition: all .2s ease;
+    }
+
+    a:hover {
+        color: darken($primary, 20%);
+        text-decoration: underline;
+    }
+}
+
+/* ===== Improve signup / guest / cookies sections ===== */
+
+.login-signup,
+.login-guest,
+.login-cookies {
+    text-align: center;
+    margin-top: 1.2rem;
+
+    h2, h3 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: $gray-800;
+    }
+
+    p {
+        font-size: 0.9rem;
+        color: $gray-600;
+        margin-bottom: 0.8rem;
+    }
+
+    hr {
+        margin: 1.5rem 0;
+        opacity: 0.25;
+    }
+}
+
+/* ===== Buttons inside login sections ===== */
+
+.login-signup .btn,
+.login-guest .btn,
+.login-cookies .btn {
+    border-radius: 30px;
+    padding: 0.5rem 1.4rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+    background-color: lighten($primary, 35%);
+    border-color: lighten($primary, 30%);
+    color: darken($primary, 20%);
+    transition: all .2s ease;
+}
+
+/* Hover */
+.login-signup .btn:hover,
+.login-guest .btn:hover,
+.login-cookies .btn:hover {
+    background-color: lighten($primary, 25%);
+    border-color: lighten($primary, 20%);
+}
+
+/* ===== Guest + Cookies on SAME LINE ===== */
+
+.login-guest,
+.login-cookies {
+    display: inline-block !important;
+    margin: 0.4rem;
+    vertical-align: middle;
+}
+
+/* Center the pair */
+.login-guest {
+    text-align: center;
+}
+
+.login-cookies {
+    text-align: center;
+}
+
+/* Prevent full width buttons */
+.login-guest .btn,
+.login-cookies .btn {
+    width: auto !important;
+}
+
+
+/* ===== ACCESS AS GUEST (RED) ===== */
+
+#loginguestbtn {
+    background-color: #dc3545 !important;
+    border-color: #dc3545 !important;
+    color: #fff !important;
+}
+
+/* Guest hover */
+#loginguestbtn:hover {
+    background-color: #c82333 !important;
+    border-color: #bd2130 !important;
+}
