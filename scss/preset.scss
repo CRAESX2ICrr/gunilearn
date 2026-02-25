@@ -14,3 +14,27 @@
 
 // Import your custom header styles
 @import "header";
+
+
+/* ============================= */
+/*  LOGIN PAGE CUSTOM HEADER     */
+/* ============================= */
+
+body.pagelayout-login .guni-simple-header {
+    background: #ffffff;
+    padding: 10px 0;
+    text-align: center;
+    border-bottom: 1px solid #dee2e6;
+}
+
+body.pagelayout-login .guni-title {
+    color: #0f6cbf;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+body.pagelayout-login .guni-tagline {
+    color: #6a737b;
+    font-size: 18px;
+    margin-top: 2px;
+}

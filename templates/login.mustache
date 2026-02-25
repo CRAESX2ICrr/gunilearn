@@ -36,6 +36,12 @@
 
 <div id="page-wrapper">
 
+    <!-- Simple White Header -->
+    <div class="guni-simple-header">
+        <div class="guni-title">GOA UNIVERSITY LEARNING MANAGEMENT SYSTEM</div>
+        <div class="guni-tagline">LMS based on moodle software</div>
+    </div>
+
     {{{ output.standard_top_of_body_html }}}
 
     <div id="page" class="container-fluid pt-5 mt-0">
@@ -53,12 +59,13 @@
             </div>
         </div>
     </div>
-    {{> theme_guni/footer }}
+
 
 </div>
 
 </body>
 </html>
+
 {{#js}}
 M.util.js_pending('theme_guni/loader');
 require(['theme_guni/loader'], function() {

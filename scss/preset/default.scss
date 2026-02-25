@@ -151,3 +151,22 @@ $warning-outline: #a6670e;
 .btn-outline-warning {
     @include button-outline-variant($warning-outline);
 }
+
+body.pagelayout-login .guni-simple-header {
+    background: #ffffff !important;
+    padding: 10px 0 !important;
+    text-align: center !important;
+    border-bottom: 1px solid #dee2e6 !important;
+}
+
+body.pagelayout-login .guni-title {
+    color: #0f6cbf !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+}
+
+body.pagelayout-login .guni-tagline {
+    color: #6a737b !important;
+    font-size: 12px !important;
+    margin-top: 2px !important;
+}
