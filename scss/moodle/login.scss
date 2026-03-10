@@ -198,14 +198,98 @@ $login-identity-provider-btn-border: $border-color !default;
 
 /* ===== ACCESS AS GUEST (RED) ===== */
 
+#guestlogin {
+    text-align: center;   /* center the button */
+}
+
 #loginguestbtn {
+    border-radius: 40px;
+    padding: 0.6rem 2.5rem;
+    font-weight: 600;
+    width: 220px;
+
     background-color: #dc3545 !important;
     border-color: #dc3545 !important;
     color: #fff !important;
+
+    transition: all .2s ease;
 }
 
 /* Guest hover */
 #loginguestbtn:hover {
     background-color: #c82333 !important;
     border-color: #bd2130 !important;
+}
+
+
+
+/* ===== Login + Create Account side by side ===== */
+
+.login-action-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    margin-top: 1rem;
+}
+
+/* Login + Create account buttons */
+.login-action-row .btn {
+    width: 220px;
+    border-radius: 40px;
+}
+
+/* Remove default margins */
+.login-action-row #loginbtn {
+    margin: 0;
+}
+
+
+/* ===== Create Account button (match login style) ===== */
+
+.create-account-btn {
+    padding: 0.6rem 2.5rem;
+    background-color: lighten($primary, 20%);
+    border-color: lighten($primary, 18%);
+    font-weight: 600;
+    transition: all .2s ease;
+    white-space: nowrap;
+}
+
+.create-account-btn:hover {
+    background-color: lighten($primary, 15%);
+    border-color: lighten($primary, 12%);
+}
+
+/* ===== Logo layout ===== */
+
+.login-logo-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-logo-wrapper img {
+    max-width: 150px;
+    margin-bottom: 8px;
+}
+
+.login-logo-text {
+    font-size: 1.35rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: $primary;
+    text-align: center;
+}
+
+
+/* ===== Input spacing ===== */
+
+.login-form-username {
+    margin-bottom: 1.4rem !important;
+}
+
+.login-form-password {
+    margin-bottom: 2rem !important;
 }

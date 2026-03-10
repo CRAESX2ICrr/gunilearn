@@ -206,14 +206,33 @@
     color: #000000;
 }
 
-/* Active tab */
-.navbar.fixed-top.bg-body .primary-navigation .nav-link.active {
-    background: rgba(255,255,255,0.15);
-    color: #ffffff;
+
+
+/* OVERRIDE Moodle active tab completely */
+.navbar.fixed-top.bg-body 
+.navbar-nav 
+.nav-link.active,
+.navbar.fixed-top.bg-body 
+.navbar-nav 
+.nav-item.show 
+.nav-link {
+    background-color: rgba(255,255,255,0.15) !important;
+    color: #ffffff !important;
 }
 
+.navbar.fixed-top.bg-body 
+.navbar-nav 
+.nav-link:focus,
+.navbar.fixed-top.bg-body 
+.navbar-nav 
+.nav-link:active {
+    background-color: transparent !important;
+    color: rgba(255,255,255,0.9) !important;
+    box-shadow: none !important;
+}
+
+
 /* Notification + message icons */
-/* Navbar bell + message icons only */
 .navbar.fixed-top.bg-body #usernavigation .icon {
     color: rgba(255,255,255,0.9);
     font-size: 1.3rem; 
