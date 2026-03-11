@@ -1,5 +1,5 @@
-$loginbackground-gradient-from: $gray-100 !default;
-$loginbackground-gradient-to: $gray-300 !default;
+$loginbackground-gradient-from: #0f2a44;
+$loginbackground-gradient-to: #1e4f8a;
 $logincontainer-bg: $white !default;
 $logincontainer-padding: 3rem !default;
 $logincontainer-shadow: $box-shadow !default;
@@ -8,18 +8,64 @@ $logindivider-margin-bottom: 1.5rem !default;
 $logindivider-border: $border-color !default;
 $login-identity-provider-btn-border: $border-color !default;
 
+
 .pagelayout-login #region-main {
     border: 0;
     background-color: inherit;
 }
 
 .pagelayout-login #page {
-    background: $loginbackground-gradient-from;
-    @include gradient-x($loginbackground-gradient-from, $loginbackground-gradient-to, 0%, 100%);
-    div[role="main"] {
-        height: 100%;
-    }
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+
+    background: radial-gradient(circle at 20% 30%, #1e4f8a 0%, transparent 45%),
+                radial-gradient(circle at 80% 70%, #2a6db3 0%, transparent 45%),
+                linear-gradient(135deg, #071d33, #0b2c4d);
 }
+
+/* moving glow */
+.pagelayout-login #page::before {
+    content: "";
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    top: -200px;
+    left: -200px;
+
+    background: radial-gradient(circle, #2a6db3 0%, transparent 70%);
+    filter: blur(120px);
+    opacity: 0.35;
+
+    animation: glowMove1 20s ease-in-out infinite alternate;
+}
+
+.pagelayout-login #page::after {
+    content: "";
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    bottom: -250px;
+    right: -250px;
+
+    background: radial-gradient(circle, #1e4f8a 0%, transparent 70%);
+    filter: blur(140px);
+    opacity: 0.35;
+
+    animation: glowMove2 26s ease-in-out infinite alternate;
+}
+
+@keyframes glowMove1 {
+    from { transform: translate(0,0); }
+    to { transform: translate(180px,120px); }
+}
+
+@keyframes glowMove2 {
+    from { transform: translate(0,0); }
+    to { transform: translate(-160px,-100px); }
+}
+
+
 
 .login-wrapper {
     display: flex;
@@ -292,4 +338,86 @@ $login-identity-provider-btn-border: $border-color !default;
 
 .login-form-password {
     margin-bottom: 2rem !important;
+}
+
+/* ============================= */
+/*  LOGIN PAGE CUSTOM HEADER     */
+/* ============================= */
+
+.pagelayout-login .guni-simple-header {
+    background: #ffffff;
+    padding: 10px 0;
+    text-align: center;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.pagelayout-login .guni-title {
+    color: #0f6cbf;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.pagelayout-login .guni-tagline {
+    color: #6a737b;
+    font-size: 18px;
+    margin-top: 2px;
+}
+
+
+
+/* ============================= */
+/*  MOBILE LOGIN IMPROVEMENTS    */
+/* ============================= */
+
+@media (max-width: 576px) {
+
+    /* Hide long title */
+    .pagelayout-login .guni-title {
+        display: none;
+    }
+
+    /* Show shorter title */
+    .pagelayout-login .guni-simple-header::before {
+        content: "GOA UNIVERSITY LMS";
+        display: block;
+        color: #0f6cbf;
+        font-size: 18px;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 4px;
+    }
+
+    /* Smaller tagline */
+    .pagelayout-login .guni-tagline {
+        font-size: 13px;
+        margin-top: 0;
+    }
+
+    /* Login container */
+    .login-container {
+        width: 92% !important;
+        padding: 1.5rem;
+    }
+
+    /* Logo smaller */
+    .login-logo-wrapper img {
+        max-width: 110px;
+    }
+
+    .login-logo-text {
+        font-size: 1rem;
+    }
+
+    /* Stack login buttons */
+    .login-action-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .login-action-row .btn,
+    #loginbtn,
+    #loginguestbtn {
+        width: 100%;
+    }
+
 }
