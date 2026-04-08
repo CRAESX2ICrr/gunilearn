@@ -167,24 +167,88 @@
 
 
 
-<div class="login-action-row mb-3">
-    <button class="btn btn-primary btn-lg" type="submit" id="loginbtn">
+
+<div class="login-action-row">
+
+    <button id="loginbtn"
+            type="submit">
         {{#str}}login{{/str}}
     </button>
 
     {{#cansignup}}
-        <a class="btn btn-secondary btn-lg create-account-btn" href="{{signupurl}}">
-            {{#str}}startsignup{{/str}}
-        </a>
+    <a href="{{signupurl}}"
+       class="create-account-btn">
+        Sign up
+    </a>
     {{/cansignup}}
+
 </div>
 
 
+<div class="login-form-forgotpassword mb-3">
+    <a href="{{forgotpasswordurl}}">
+        {{#str}}forgotaccount{{/str}}
+    </a>
+</div>
 
-            <div class="login-form-forgotpassword mb-3">
-                <a href="{{forgotpasswordurl}}">{{#str}}forgotaccount{{/str}}</a>
-            </div>
+
         </form>
+
+        <div id="otpModal"
+     style="display:none;
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background:rgba(0,0,0,0.5);
+            z-index:9999;">
+
+    <div style="
+        background:white;
+        width:350px;
+        padding:20px;
+        margin:120px auto;
+        border-radius:8px;
+        text-align:center;
+    ">
+
+        <h4>OTP Login</h4>
+
+        <input type="text"
+               id="mobile"
+               class="form-control mb-2"
+               placeholder="Mobile number">
+
+        <div id="recaptcha-container"></div>
+
+<button type="button"
+        class="btn btn-primary w-100 mb-2"
+        onclick="sendOtpFirebase()">
+    Send OTP
+</button>
+
+        <input type="text"
+               id="otp"
+               class="form-control mb-2"
+               placeholder="Enter OTP">
+
+<button type="button"
+        class="btn btn-success w-100 mb-2"
+        onclick="verifyOtpFirebase()">
+    Verify OTP
+</button>
+
+<button type="button"
+        class="btn btn-link"
+        onclick="document.getElementById('otpModal').style.display='none'">
+    Close
+</button>
+
+    </div>
+
+</div>
+
     {{/showloginform}}
     {{#hasidentityproviders}}
         <div class="login-divider"></div>
@@ -201,7 +265,6 @@
         </div>
     {{/hasidentityproviders}}
     {{#hasinstructions}}
-        <div class="login-divider"></div>
         <div class="login-instructions {{#cansignup}}mb-3{{/cansignup}}">
             <h2 class="login-heading">{{#str}}firsttime{{/str}}</h2>
             {{{instructions}}}
@@ -210,6 +273,15 @@
 
     {{#canloginasguest}}
         <div class="login-divider"></div>
+
+        <!-- OTP LOGIN BUTTON -->
+        <div style="text-align:center; margin-bottom:10px;">
+            <button type="button"
+                    id="otpLoginBtn"
+                    onclick="openOtpModal()">
+                OTP Login
+            </button>
+        </div>
         <h2 class="login-heading">{{#str}}someallowguest{{/str}}</h2>
         <form action="{{loginurl}}" method="post" id="guestlogin">
             <input type="hidden" name="logintoken" value="{{logintoken}}">
@@ -227,6 +299,22 @@
     {{/languagemenu}}
 </div>
 </div>
+
+
+
+
+
+
+
+
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+
+<script src="{{config.wwwroot}}/theme/guni/javascript/otp.js"></script>
+
+
+
 
 {{#js}}
     {{^error}}
@@ -281,4 +369,6 @@
             Submit.init("loginguestbtn");
         {{/canloginasguest}}
     });
+
+
 {{/js}}

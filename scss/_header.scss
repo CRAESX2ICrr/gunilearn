@@ -1,16 +1,29 @@
 /* ==========================================
-   GUNI – RESPONSIVE DASHBOARD HEADER
+   GUNI – DASHBOARD HEADER (BLUE VERSION)
    ========================================== */
 
 #page-header.header-maxwidth {
-    background: #eef1f5;
-    border-radius: 20px;
-    padding: 2.5rem;
-    margin-bottom: 2.5rem;
-    border: 1px solid #e2e6ec;
+    background: linear-gradient(135deg, #3b5f95, #4f7db5);
+    border-radius: 12px;
+    padding: 1.8rem;
+    margin-bottom: 1.5rem;
+    border: none;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
 }
 
-/* Layout container */
+#page-header.header-maxwidth .breadcrumb a {
+    color: #ffffff !important;
+}
+
+#page-header.header-maxwidth .breadcrumb a:hover,
+#page-header.header-maxwidth .breadcrumb a:focus,
+#page-header.header-maxwidth .breadcrumb a:active {
+    color: #e6f0ff !important;
+    text-decoration: underline;
+}
+
+/* Layout */
+
 #page-header .d-flex {
     display: flex;
     align-items: center;
@@ -19,20 +32,24 @@
     gap: 1rem;
 }
 
+
 /* Title */
+
 #page-header h1 {
     font-size: 2rem;
     font-weight: 700;
-    color: #0f172a;
+    color: #ffffff;
     margin: 0;
-    white-space: nowrap;
 }
 
-/* Buttons */
+
+/* Buttons container */
+
 .header-actions-container {
     display: flex;
     gap: 0.75rem;
 }
+
 
 /* ==================================
    BUTTONS – UNIVERSITY STYLE
@@ -40,26 +57,37 @@
 
 .header-actions-container .btn {
     border-radius: 999px;
-    padding: 0.7rem 1.6rem;
+    padding: 0.6rem 1.4rem;
     font-weight: 600;
     font-size: 0.9rem;
 }
 
+
 /* Primary */
+
 .header-actions-container .btn-primary {
     background: #c8102e;
     border-color: #c8102e;
+    color: white;
 }
 
+
 /* Outline */
+
 .header-actions-container .btn-outline-primary {
-    border: 1.5px solid #c8102e;
-    color: #c8102e;
+    border: 1.5px solid #ffffff;
+    color: #ffffff;
+    background: transparent;
 }
+
+.header-actions-container .btn-outline-primary:hover {
+    background: rgba(255,255,255,0.15);
+}
+
 
 
 /* ==================================
-   MOBILE (PHONE OPTIMIZED)
+   MOBILE
    ================================== */
 
 @media (max-width: 576px) {
@@ -69,7 +97,6 @@
         text-align: center;
     }
 
-    /* Stack header elements */
     #page-header .d-flex {
         flex-direction: column !important;
         align-items: center !important;
@@ -79,17 +106,11 @@
         width: 100%;
     }
 
-    /* FORCE title center */
     #page-header h1 {
         font-size: 1.25rem;
-        font-weight: 600;
-        margin: 0 auto;
-        text-align: center;
-        width: 100%;
-        display: block;
+        color: white;
     }
 
-    /* Button container */
     .header-actions-container {
         width: 100%;
         justify-content: center;
@@ -97,11 +118,9 @@
         gap: 0.45rem;
     }
 
-    /* Smaller buttons */
     .header-actions-container .btn {
         font-size: 0.78rem;
         padding: 0.4rem 0.9rem;
-        border-radius: 999px;
         min-width: 95px;
     }
 

@@ -173,7 +173,7 @@ $THEME->layouts = [
     )
 ];
 
-$THEME->parents = [];
+$THEME->parents = ['boost'];
 $THEME->enable_dock = false;
 $THEME->extrascsscallback = 'theme_guni_get_extra_scss';
 $THEME->prescsscallback = 'theme_guni_get_pre_scss';

@@ -99,7 +99,7 @@ body {
 /* AUTO RESPONSIVE COURSE GRID - CENTERED */
 .block_myoverview .card-grid {
   display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 260px));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 300px));
   justify-content: center;
   gap: 16px;
 }

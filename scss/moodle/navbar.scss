@@ -1,8 +1,7 @@
 @mixin hover-navbar {
     border-color: transparent;
-    background-color: $gray-100;
+    background-color: transparent;
 }
-
 .navbar.fixed-top {
     padding-top: 0;
     padding-bottom: 0;
@@ -220,16 +219,6 @@
     color: #ffffff !important;
 }
 
-.navbar.fixed-top.bg-body 
-.navbar-nav 
-.nav-link:focus,
-.navbar.fixed-top.bg-body 
-.navbar-nav 
-.nav-link:active {
-    background-color: transparent !important;
-    color: rgba(255,255,255,0.9) !important;
-    box-shadow: none !important;
-}
 
 
 /* Notification + message icons */
@@ -392,3 +381,20 @@
     font-size: 1.1rem;
 }
 
+
+
+/* ===== GLOBAL NAVBAR FOCUS FIX ===== */
+
+.navbar.fixed-top.bg-body a:focus,
+.navbar.fixed-top.bg-body a:active,
+.navbar.fixed-top.bg-body .nav-link:focus,
+.navbar.fixed-top.bg-body .nav-link:active,
+.navbar.fixed-top.bg-body button:focus,
+.navbar.fixed-top.bg-body button:active,
+.navbar.fixed-top.bg-body .login,
+.navbar.fixed-top.bg-body .login * {
+    background: transparent !important;
+    box-shadow: none !important;
+    outline: none !important;
+    color: #ffffff !important;
+}

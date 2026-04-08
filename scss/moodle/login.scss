@@ -8,65 +8,6 @@ $logindivider-margin-bottom: 1.5rem !default;
 $logindivider-border: $border-color !default;
 $login-identity-provider-btn-border: $border-color !default;
 
-
-.pagelayout-login #region-main {
-    border: 0;
-    background-color: inherit;
-}
-
-.pagelayout-login #page {
-    position: relative;
-    min-height: 100vh;
-    overflow: hidden;
-
-    background: radial-gradient(circle at 20% 30%, #1e4f8a 0%, transparent 45%),
-                radial-gradient(circle at 80% 70%, #2a6db3 0%, transparent 45%),
-                linear-gradient(135deg, #071d33, #0b2c4d);
-}
-
-/* moving glow */
-.pagelayout-login #page::before {
-    content: "";
-    position: absolute;
-    width: 700px;
-    height: 700px;
-    top: -200px;
-    left: -200px;
-
-    background: radial-gradient(circle, #2a6db3 0%, transparent 70%);
-    filter: blur(120px);
-    opacity: 0.35;
-
-    animation: glowMove1 20s ease-in-out infinite alternate;
-}
-
-.pagelayout-login #page::after {
-    content: "";
-    position: absolute;
-    width: 800px;
-    height: 800px;
-    bottom: -250px;
-    right: -250px;
-
-    background: radial-gradient(circle, #1e4f8a 0%, transparent 70%);
-    filter: blur(140px);
-    opacity: 0.35;
-
-    animation: glowMove2 26s ease-in-out infinite alternate;
-}
-
-@keyframes glowMove1 {
-    from { transform: translate(0,0); }
-    to { transform: translate(180px,120px); }
-}
-
-@keyframes glowMove2 {
-    from { transform: translate(0,0); }
-    to { transform: translate(-160px,-100px); }
-}
-
-
-
 .login-wrapper {
     display: flex;
     align-items: center;
@@ -130,24 +71,46 @@ $login-identity-provider-btn-border: $border-color !default;
 }
 
 
-/* ===== Custom login button ===== */
-#loginbtn {
-    display: block;
-    margin: 1rem auto 0;   // center button
-    border-radius: 40px;   // rounder shape
+///////////////////////////////////////////////////////////////////////////////////////////
+
+#loginbtn,
+.create-account-btn {
+    display: inline-block;
+    margin: 1rem 0 0 0;
+    border-radius: 40px;
     padding: 0.6rem 2.5rem;
-    background-color: darken($primary, 8%);
-    border-color: darken($primary, 10%);
+    width: 220px;
     font-weight: 600;
     transition: all .2s ease;
-    width: 220px;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+}
 
+
+/* LOGIN */
+#loginbtn {
+    background-color: darken($primary, 8%);
+    border: 1px solid darken($primary, 10%);
 }
 
 #loginbtn:hover {
-    background-color: darken($primary, 12%);
-    border-color: darken($primary, 14%);
+    background-color: darken($primary, 2%);
+    border-color: darken($primary, 4%);
 }
+
+/* SIGN UP */
+.create-account-btn {
+    background-color: lighten($primary, 12%);
+    border: 1px solid lighten($primary, 8%);
+}
+
+.create-account-btn:hover {
+    background-color: lighten($primary, 6%);
+    border-color: lighten($primary, 4%);
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////
 
 
 .login-form-forgotpassword {
@@ -167,80 +130,16 @@ $login-identity-provider-btn-border: $border-color !default;
     }
 }
 
-/* ===== Improve signup / guest / cookies sections ===== */
 
-.login-signup,
-.login-guest,
-.login-cookies {
-    text-align: center;
-    margin-top: 1.2rem;
-
-    h2, h3 {
-        font-size: 1.2rem;
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-        color: $gray-800;
-    }
-
-    p {
-        font-size: 0.9rem;
-        color: $gray-600;
-        margin-bottom: 0.8rem;
-    }
-
-    hr {
-        margin: 1.5rem 0;
-        opacity: 0.25;
-    }
-}
 
 /* ===== Buttons inside login sections ===== */
 
-.login-signup .btn,
-.login-guest .btn,
-.login-cookies .btn {
-    border-radius: 30px;
-    padding: 0.5rem 1.4rem;
-    font-weight: 500;
-    font-size: 0.9rem;
-    background-color: lighten($primary, 35%);
-    border-color: lighten($primary, 30%);
-    color: darken($primary, 20%);
-    transition: all .2s ease;
-}
-
-/* Hover */
-.login-signup .btn:hover,
-.login-guest .btn:hover,
-.login-cookies .btn:hover {
-    background-color: lighten($primary, 25%);
-    border-color: lighten($primary, 20%);
-}
-
-/* ===== Guest + Cookies on SAME LINE ===== */
-
-.login-guest,
-.login-cookies {
+.login-guest {
     display: inline-block !important;
     margin: 0.4rem;
     vertical-align: middle;
-}
-
-/* Center the pair */
-.login-guest {
     text-align: center;
 }
-
-.login-cookies {
-    text-align: center;
-}
-
-/* Prevent full width buttons */
-.login-guest .btn,
-.login-cookies .btn {
-    width: auto !important;
-}
-
 
 /* ===== ACCESS AS GUEST (RED) ===== */
 
@@ -279,33 +178,6 @@ $login-identity-provider-btn-border: $border-color !default;
     margin-top: 1rem;
 }
 
-/* Login + Create account buttons */
-.login-action-row .btn {
-    width: 220px;
-    border-radius: 40px;
-}
-
-/* Remove default margins */
-.login-action-row #loginbtn {
-    margin: 0;
-}
-
-
-/* ===== Create Account button (match login style) ===== */
-
-.create-account-btn {
-    padding: 0.6rem 2.5rem;
-    background-color: lighten($primary, 20%);
-    border-color: lighten($primary, 18%);
-    font-weight: 600;
-    transition: all .2s ease;
-    white-space: nowrap;
-}
-
-.create-account-btn:hover {
-    background-color: lighten($primary, 15%);
-    border-color: lighten($primary, 12%);
-}
 
 /* ===== Logo layout ===== */
 
@@ -313,7 +185,6 @@ $login-identity-provider-btn-border: $border-color !default;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
 }
 
 .login-logo-wrapper img {
@@ -340,84 +211,118 @@ $login-identity-provider-btn-border: $border-color !default;
     margin-bottom: 2rem !important;
 }
 
-/* ============================= */
-/*  LOGIN PAGE CUSTOM HEADER     */
-/* ============================= */
+////////////////////////////////////////////////////////////////////////////////////////* SPLIT LOGIN LAYOUT */
+.login-split-layout {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
 
-.pagelayout-login .guni-simple-header {
-    background: #ffffff;
-    padding: 10px 0;
+/* LEFT SIDE */
+
+.login-left {
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    position: relative;
+    overflow: hidden;
+
+    background:
+        linear-gradient(rgba(7,29,51,0.7), rgba(7,29,51,0.85)),
+        url([[pix:theme_guni|goa]]) center/cover no-repeat;
+}
+
+.login-left-content {
     text-align: center;
-    border-bottom: 1px solid #dee2e6;
 }
 
-.pagelayout-login .guni-title {
-    color: #0f6cbf;
-    font-size: 28px;
-    font-weight: 600;
+.login-left-content h1 {
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: 2px;
 }
 
-.pagelayout-login .guni-tagline {
-    color: #6a737b;
+.login-left-content p {
     font-size: 18px;
-    margin-top: 2px;
+    opacity: 0.9;
 }
 
 
+/* RIGHT SIDE */
 
-/* ============================= */
-/*  MOBILE LOGIN IMPROVEMENTS    */
-/* ============================= */
+.login-right {
+    flex: 1;
 
-@media (max-width: 576px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    /* Hide long title */
-    .pagelayout-login .guni-title {
+    background-color: #f5f7fb;
+
+    background-image: radial-gradient(#d0d8e5 3px, transparent 1px);
+    background-size: 22px 22px;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+@media (max-width: 768px) {
+
+    .login-split-layout {
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    .login-left {
         display: none;
     }
 
-    /* Show shorter title */
-    .pagelayout-login .guni-simple-header::before {
-        content: "GOA UNIVERSITY LMS";
-        display: block;
-        color: #0f6cbf;
-        font-size: 18px;
-        font-weight: 600;
-        text-align: center;
-        margin-bottom: 4px;
+    .login-right {
+        flex: 1;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 20px;
+
+        background:
+            linear-gradient(rgba(7,29,51,0.75), rgba(7,29,51,0.85)),
+            url([[pix:theme_guni|goa]]) center / cover no-repeat;
     }
 
-    /* Smaller tagline */
-    .pagelayout-login .guni-tagline {
-        font-size: 13px;
-        margin-top: 0;
-    }
-
-    /* Login container */
     .login-container {
-        width: 92% !important;
+        width: 100%;
+        max-width: 380px;
         padding: 1.5rem;
+        background: rgba(255,255,255,0.7);
+        border-radius: 14px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.25);
     }
 
-    /* Logo smaller */
-    .login-logo-wrapper img {
-        max-width: 110px;
-    }
-
-    .login-logo-text {
-        font-size: 1rem;
-    }
-
-    /* Stack login buttons */
-    .login-action-row {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .login-action-row .btn,
-    #loginbtn,
-    #loginguestbtn {
+    .btn {
         width: 100%;
     }
 
+}
+
+#otpLoginBtn {
+    display: inline-block;
+    margin-top: 0.5rem;
+
+    border-radius: 40px;
+    padding: 0.6rem 2.5rem;
+
+    width: 220px;
+    font-weight: 600;
+
+    background-color: $primary;
+    border: 1px solid darken($primary, 5%);
+    color: #fff;
+}
+
+#otpLoginBtn:hover {
+    background-color: darken($primary, 5%);
 }

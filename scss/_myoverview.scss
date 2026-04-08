@@ -1,84 +1,172 @@
-/* ==========================================
-   MYOVERVIEW FILTER BAR (MODERN)
-   ========================================== */
 
-/* Filter container */
-.block_myoverview [data-region="filter"] {
-    background: #ffffff;
-    padding: 12px 16px;
-    border-radius: 12px;
-    border: 1px solid #e6e8ec;
-    margin-bottom: 20px;
+/* ===================================== */
+/* FILTER BAR — UNIVERSITY CLEAN STYLE   */
+/* ===================================== */
+
+.block_myoverview .block-myoverview [data-region="filter"] > .d-flex.flex-wrap {
+
+    background: linear-gradient(135deg, #3b5f95, #4f7db5);
+    border: 1px solid #082e54;
+    border-radius: 14px;
+    padding: 10px 14px;
+    gap: 10px;
+    align-items: center;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    margin-bottom: 16px;
+
+    width: 100%;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* spacing between items */
+
+/* =============================== */
+/* CENTER FILTER BAR CORRECTLY */
+/* =============================== */
+
+.block_myoverview [data-region="filter"] {
+
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* ===================== */
+/* SEARCH INPUT */
+/* ===================== */
+
+.block_myoverview input.form-control,
+.block_myoverview .form-control.withclear {
+
+    height: 36px;
+    border-radius: 8px;
+    border: 1px solid #ccd6e6 !important;
+    box-shadow: none !important;
+}
+
+.block_myoverview input.form-control:focus {
+
+    border: 1px solid #0f6cbf !important;
+    box-shadow: 0 0 0 2px rgba(15,108,191,0.15) !important;
+}
+
+
+/* ===================== */
+/* DROPDOWN BUTTONS */
+/* ===================== */
+
+.block_myoverview .btn-outline-secondary {
+
+    height: 36px;
+    padding: 0 14px;
+    border-radius: 8px;
+    border: 1px solid #ccd6e6;
+    white-space: nowrap;
+    flex: 0 0 auto;
+}
+
+
+/* ===================== */
+/* SEARCH SIZE CONTROL */
+/* ===================== */
+
+.block_myoverview .flex-grow-1 {
+
+    flex: 1 1 auto;
+    min-width: 250px;
+    max-width: 100%;
+}
+
+
+/* ===================== */
+/* BETTER SPACING */
+/* ===================== */
+
 .block_myoverview [data-region="filter"] .gap-1 {
     gap: 10px !important;
 }
 
-/* ==========================================
-   SEARCH BAR
-   ========================================== */
 
-.block_myoverview input[type="search"] {
-    border-radius: 10px;
-    border: 1px solid #e5e7eb;
-    padding: 8px 14px;
-    font-size: 0.9rem;
-    width: 100%;
-    transition: all 0.2s ease;
+/* =============================== */
+/* SPACE UNDER FILTER BAR */
+/* =============================== */
+
+.block_myoverview [data-region="filter"] {
+    margin-bottom: 18px !important;
 }
 
-/* remove red focus ring */
-.block_myoverview input[type="search"]:focus {
-    outline: none;
-    border-color: #c8102e;
-    box-shadow: 0 0 0 2px rgba(200, 16, 46, 0.12);
+.block_myoverview .container-fluid.p-0 {
+    margin-top: 10px !important;
 }
 
-/* ==========================================
-   DROPDOWNS
-   ========================================== */
-
-.block_myoverview .dropdown-toggle {
-    border-radius: 10px;
-    border: 1px solid #e5e7eb;
-    background: #ffffff;
-    padding: 6px 12px;
-    font-size: 0.85rem;
+.block_myoverview .card-grid {
+    margin-top: 10px !important;
 }
 
-.block_myoverview .dropdown-toggle:hover {
-    background: #f8fafc;
-}
 
-/* ==========================================
-   FILTER BAR LAYOUT
-   ========================================== */
-
-.block_myoverview [data-region="filter"] .d-flex {
-    align-items: center;
-}
-
-/* search takes more space */
-.block_myoverview input[type="search"] {
-    flex: 1;
-}
-
-/* ==========================================
-   MOBILE
-   ========================================== */
+/* =============================== */
+/* RESPONSIVE FIX */
+/* =============================== */
 
 @media (max-width: 768px) {
 
-.block_myoverview [data-region="filter"] .d-flex {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 8px;
+    .block_myoverview [data-region="filter"] {
+        max-width: 100%;
+    }
+
+    .block_myoverview .block-myoverview [data-region="filter"] > .d-flex.flex-wrap {
+        max-width: 100%;
+    }
+
+    .block_myoverview .flex-grow-1 {
+        max-width: 100%;
+    }
+
 }
 
-.block_myoverview input[type="search"] {
-    width: 100%;
+
+/* =============================== */
+/* COURSE OVERVIEW TITLE */
+/* =============================== */
+
+.block_myoverview h2,
+.block_myoverview h3 {
+
+    text-align: center;
+    font-weight: 600;
+    color: #2f4f7f;
+    margin-bottom: 12px;
+
+    font-size: 1.35rem;   /* default (tablet) */
 }
 
+
+
+@media (max-width: 768px) {
+
+    #topofscroll,
+    #topofscroll.main-inner,
+    #page.drawers .main-inner,
+    #region-main-box,
+    #region-main,
+    #page-content {
+
+        max-width: 100% !important;
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+
+}
+
+/* FORCE override H5P full width */
+#region-main iframe.h5p-player {
+    max-width: 900px !important;
+    width: 900px !important;
+    margin: 0 auto;
+    display: block;
 }

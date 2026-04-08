@@ -29,37 +29,33 @@
         }
     }
 }}
+
+
 {{> theme_guni/head }}
 
 <body {{{ bodyattributes }}}>
 {{> core/local/toast/wrapper}}
 
-<div id="page-wrapper">
+<div class="login-split-layout">
 
-    <!-- Simple White Header -->
-    <div class="guni-simple-header">
-        <div class="guni-title">GOA UNIVERSITY LEARNING MANAGEMENT SYSTEM</div>
-        <div class="guni-tagline">LMS based on moodle software</div>
-    </div>
-
-    {{{ output.standard_top_of_body_html }}}
-
-    <div id="page" class="container-fluid pt-5 mt-0">
-        <div id="page-content" class="row">
-            <div id="region-main-box" class="col-12">
-                <div id="region-main" class="col-12 h-100">
-
-                <div class="login-wrapper">
-                    <div class="login-container">
-                    {{{ output.main_content }}}
-                    </div>
-                </div>
-                
-                </div>
-            </div>
+    <!-- LEFT SIDE -->
+    <div class="login-left">
+        <div class="login-left-content">
+            <h1>GOA UNIVERSITY</h1>
+            <p>Learning Management System</p>
         </div>
     </div>
 
+    <!-- RIGHT SIDE -->
+    <div class="login-right">
+
+        <div class="login-wrapper">
+            <div class="login-container">
+                {{{ output.main_content }}}
+            </div>
+        </div>
+
+    </div>
 
 </div>
 
